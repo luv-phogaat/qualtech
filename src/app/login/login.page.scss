@@ -1,0 +1,23 @@
+ion-content {
+  --padding-start: 5%;
+  --padding-end: 5%;
+  --background: var(--ion-color-primary);
+  --overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ion-item {
+    --background: none;
+}
+
+
+
+.invalid-feedback {
+  position: absolute;
+  right: 0px;
+  color: red;
+  font-size: 12px;
+  bottom: 0;
+}

@@ -1,0 +1,65 @@
+<ion-content class="loginPage text-center" scroll="false" fullscreen="true">
+  <ion-grid class="" style="height: 100%">
+    <ion-row class="ion-no-padding ion-justify-content-center ion-align-items-center"
+      style="height: 100%; flex-direction: column">
+      <ion-col size="12" size-md="4" class="">
+        <ion-card>
+          <ion-card-header style="text-align: center;">
+            <h3 class="bold header">Qualtech</h3>
+          </ion-card-header>
+          <ion-card-content>
+            <form [formGroup]="userForm" (ngSubmit)="registerUser()">
+
+              <ion-grid padding-top>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-item class="item-input">
+                      <ion-label position="floating" class="ion-padding-bottom" color="medium">NAME</ion-label>
+                      <ion-input type="text" autofocus="true" formControlName="name"></ion-input>
+                      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required">Required</div>
+                      </div>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="12">
+                    <ion-item class="item-input">
+                      <ion-label position="floating" padding-bottom color="medium">
+                        EMAIL</ion-label>
+                      <ion-input type="email" inputmode="email" formControlName="emailId"></ion-input>
+                      <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+                        <div *ngIf="f.emailId.errors.required">Required</div>
+                      </div>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+
+                  <ion-col size="12">
+                    <ion-item class="item-input">
+                      <ion-label position="floating" class="ion-padding-bottom" color="medium">Mobile</ion-label>
+                      <ion-input type="tel" inputmode="tel" formControlName="contactNo"></ion-input>
+                      <div *ngIf="submitted && f.contactNo.errors" class="invalid-feedback">
+                        <div *ngIf="f.contactNo.errors.required">Required</div>
+                      </div>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <ion-button type="submit" expand="full" type="submit" class="submit-button">Register
+                <span *ngIf="spinner">
+                  <ion-spinner name="lines"></ion-spinner>
+                </span>
+              </ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer class="ion-padding">
+
+</ion-footer>

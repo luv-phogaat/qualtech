@@ -1,0 +1,41 @@
+<ion-content class="loginPage text-center" scroll="false" fullscreen="true">
+  <ion-grid class="" style="height: 100%">
+    <ion-row class="ion-no-padding ion-justify-content-center ion-align-items-center"
+      style="height: 100%; flex-direction: column">
+      <ion-col size="12" size-md="4" class="">
+        <ion-card>
+          <ion-card-header style="text-align: center;">
+            <h3 class="bold header">Qualtech</h3>
+          </ion-card-header>
+          <ion-card-content>
+            <form [formGroup]="loginFormGroup" (ngSubmit)="login()" (keyup.enter)="login()">
+              <ion-list>
+                <ion-item>
+                  <ion-label position="floating">Email/Mobile</ion-label>
+                  <ion-input type='text' formControlName="username" class="form-control">
+                  </ion-input>
+                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Required</div>
+                  </div>
+                </ion-item>
+                <ion-item>
+                  <ion-label position="floating">Password</ion-label>
+                  <ion-input type='password' formControlName="password" class="form-control"></ion-input>
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Required</div>
+                    <div *ngIf="f.password.errors.minLength">Minimum 8 Characters</div>
+                    <div *ngIf="f.password.errors.pattern">Atleast 1 LowerCase , 1 UpperCase, 1 Number, 1 Special Character</div>
+                  </div>
+                </ion-item>
+              </ion-list>
+            </form>
+            <ion-button (click)="login()" expand="block" color="primary" class="text-white bold login-btn"
+              fill="outline">Login</ion-button>
+            <ion-button fill="clear" expand="block" color="primary" class="fs-16  bold ion-text-capitalize"
+              (click)="goToRegister()">REGISTER</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

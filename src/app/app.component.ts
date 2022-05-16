@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { StorageService } from './storage.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(
+    private storage: StorageService,
+    private router: Router
+  ) {
+      this.storage.getObject('AuthorizationData').then(data => {
+        if (data) {
+          this.router.navigate(['/home']);
+        }
+      });
+  }
 }
