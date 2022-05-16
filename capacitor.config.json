@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "qualtech",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
